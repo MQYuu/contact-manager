@@ -1,8 +1,14 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const contactRouter = require('./router/contactRouter'); // Đường dẫn đúng tới file router
 
+// Middleware
 app.use(express.json());
+
+// Routes
+app.use('/api/contacts', contactRouter); // Tất cả các route trong router sẽ được tiền tố bằng '/api/contacts'
+
 
 let contacts = [
     {id: 1, name: 'John Doe', email: 'John@gmail.com'},
